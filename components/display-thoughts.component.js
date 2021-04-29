@@ -28,9 +28,9 @@ export default class DisplayThoughts extends Component {
   }
 
   updateDate = (date) => {
-    let cleanDate = new Date (date); // outputs: Thu Apr 15 2021 16:39:32 GMT+0100 (British Summer Time)
+    let cleanDate = new Date (date)
     let dateString = String(cleanDate)
-    return dateString.slice(0,24)
+    return dateString.slice(0,21)
   }
 
   render() {
