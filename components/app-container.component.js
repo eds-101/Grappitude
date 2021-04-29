@@ -4,7 +4,6 @@ import axios from "axios";
 
 import styles from './design.component.style';
 
-import AboutMe from "./about-me.component";
 import CreateThought from "./create-thought.component";
 import InspireMe   from "./inspire-me.component";
 import ProgressBar from "./progress-bar.component";
@@ -42,7 +41,7 @@ const AppContainer = () => {
   
   return (
       <View>
-            <Image source={require("../assets/header.png")} style={styles.image}/>
+            {/* <Image source={require("../assets/header.png")} style={styles.image}/> */}
               {/* <Text style={styles.title}>
               Grappitude
               </Text>
