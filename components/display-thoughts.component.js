@@ -27,6 +27,16 @@ export default class DisplayThoughts extends Component {
     });
   }
 
+  deleteThought = (thoughtId) => {
+    axios.delete(`http://localhost:5000/${thoughtId}`).
+    then(
+    res => console.log(res.data),
+    this.setState({ 
+      thoughts: this.state.thoughts.filter(thought => thought._id !== thoughtId) 
+    })
+    )
+  }
+
   updateDate = (date) => {
     let cleanDate = new Date (date)
     let dateString = String(cleanDate)
@@ -43,8 +53,8 @@ export default class DisplayThoughts extends Component {
                 <Text style={ styles.thoughtsText }> {item.thought}</Text>
                 <Text style={ styles.thoughtsText }> {this.updateDate(item.createdAt)}</Text>
                 <Button
-                title = "hey"
-                onPress={() => Alert.alert('Simple')}
+                title = "Delete this"
+                onPress={ () => this.deleteThought(item._id) }
                  />
               </View>
             ))
