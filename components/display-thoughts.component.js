@@ -1,5 +1,5 @@
 import React,  { Component } from 'react';
-import { FlatList, ScrollView, Text, View } from 'react-native';
+import { FlatList, ScrollView, Text, View, Button, Alert } from 'react-native';
 import styles from './design.component.style';
 import axios from "axios";
 import sampleData from "./sampleData"
@@ -42,6 +42,10 @@ export default class DisplayThoughts extends Component {
               <View key={item._id}>
                 <Text style={ styles.thoughtsText }> {item.thought}</Text>
                 <Text style={ styles.thoughtsText }> {this.updateDate(item.createdAt)}</Text>
+                <Button
+                title = "hey"
+                onPress={() => Alert.alert('Simple')}
+                 />
               </View>
             ))
           }
