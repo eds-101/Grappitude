@@ -1,14 +1,12 @@
-import React, { Component, useState } from 'react';
-import { FlatList, Text, Button, TextInput, View, StyleSheet, Image, ScrollView, SafeAreaView } from 'react-native';
+import React, { useState } from 'react';
+import { View, ScrollView } from 'react-native';
 import axios from "axios";
 
-import styles from './design.component.style';
-
 import CreateThought from "./create-thought.component";
-import InspireMe   from "./inspire-me.component";
-import ProgressBar from "./progress-bar.component";
+import InspireMe from "./inspire-me.component";
 import DisplayThoughts from "./display-thoughts.component";
 import { level } from "../functions/level"
+import { progressBar } from "../functions/progress-bar"
 
 
 const AppContainer = () => {
@@ -34,21 +32,17 @@ const AppContainer = () => {
   }
 
   const afterThoughtCreated = (data) => {
-    // We choose to do nothing with the data argument
-    // But I'm leaving it as a reminder that we *can*
     getThoughtsLength()
   }
   
   return (
       <View>
-
         <CreateThought afterThoughtCreated={afterThoughtCreated}/>
-        {level(healthLevel)}
-        <ProgressBar progressBarWidth={progressBarWidth}/>
+        { level(healthLevel) }
+        { progressBar(progressBarWidth) }
         <InspireMe />
 
         <View style={{ height: 400}}> 
-        {/* Can only have one component in scroll (i.e. display thoughts) */}
             <ScrollView>
               <DisplayThoughts />
             </ScrollView>
