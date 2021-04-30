@@ -2,7 +2,7 @@ import React,  { Component } from 'react';
 import { FlatList, ScrollView, Text, View, Button, Alert } from 'react-native';
 import styles from './design.component.style';
 import axios from "axios";
-import sampleData from "./sampleData"
+import { dateFormatter } from "../functions/date-formatter"
 
 export default class DisplayThoughts extends Component {
    constructor(props) {
@@ -37,12 +37,6 @@ export default class DisplayThoughts extends Component {
     )
   }
 
-  updateDate = (date) => {
-    let cleanDate = new Date (date)
-    let dateString = String(cleanDate)
-    return dateString.slice(0,21)
-  }
-
   render() {
     
     return (
@@ -51,7 +45,7 @@ export default class DisplayThoughts extends Component {
             item => (
               <View key={item._id}>
                 <Text style={ styles.thoughtsText }> {item.thought}</Text>
-                <Text style={ styles.thoughtsText }> {this.updateDate(item.createdAt)}</Text>
+                <Text style={ styles.thoughtsText }> {dateFormatter(item.createdAt)}</Text>
                 <Button
                 title = "Delete this"
                 onPress={ () => this.deleteThought(item._id) }
