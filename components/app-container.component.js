@@ -7,8 +7,8 @@ import styles from './design.component.style';
 import CreateThought from "./create-thought.component";
 import InspireMe   from "./inspire-me.component";
 import ProgressBar from "./progress-bar.component";
-import Level from "./level.component";
 import DisplayThoughts from "./display-thoughts.component";
+import { level } from "../functions/level"
 
 
 const AppContainer = () => {
@@ -41,16 +41,11 @@ const AppContainer = () => {
   
   return (
       <View>
-            {/* <Image source={require("../assets/header.png")} style={styles.image}/> */}
-              {/* <Text style={styles.title}>
-              Grappitude
-              </Text>
-            <AboutMe />
-           */}
-              <CreateThought afterThoughtCreated={afterThoughtCreated}/>
-              <Level healthLevel={healthLevel}/>
-              <ProgressBar progressBarWidth={progressBarWidth}/>
-              <InspireMe />
+
+        <CreateThought afterThoughtCreated={afterThoughtCreated}/>
+        {level(healthLevel)}
+        <ProgressBar progressBarWidth={progressBarWidth}/>
+        <InspireMe />
 
         <View style={{ height: 400}}> 
         {/* Can only have one component in scroll (i.e. display thoughts) */}

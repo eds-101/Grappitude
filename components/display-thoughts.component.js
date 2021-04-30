@@ -1,7 +1,8 @@
 import React,  { Component } from 'react';
 import { FlatList, ScrollView, Text, View, Button, Alert } from 'react-native';
-import styles from './design.component.style';
 import axios from "axios";
+
+import styles from './design.component.style';
 import { dateFormatter } from "../functions/date-formatter"
 
 export default class DisplayThoughts extends Component {
