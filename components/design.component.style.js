@@ -57,7 +57,7 @@ textInput: {
   width: '80%',
   borderColor: '#F7C9B6',
   borderRadius: 1,
-  borderWidth: 1,
+  borderWidth: 3,
   marginLeft: 40,
 },
 
