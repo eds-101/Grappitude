@@ -65,15 +65,16 @@ image: {
   width: '100%',
   },
 
-thoughtsStyle: {
-  marginTop: 40,
-  margin: 10,
-  marginBottom: 0
+thoughtsText: {
+  fontSize: 18,
+  textAlign: "center",
+  marginBottom: 1
   },
 
-thoughtsText: {
+thoughtsDate: {
+  fontSize: 14,
   textAlign: "center",
-  marginBottom: 10
+  marginBottom: 1
   },
 
 button: {
