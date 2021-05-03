@@ -61,7 +61,7 @@ const styles = StyleSheet.create({
     flex: 1
   },
   createThought: {
-    flex: 1
+    flex: 2
   },
   fillerContent: {
     flex: 1
@@ -70,7 +70,7 @@ const styles = StyleSheet.create({
     flex: 1
   },
   thoughtList: {
-    flex: 1.5
+    flex: 1
   }
 })
 
