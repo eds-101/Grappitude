@@ -48,7 +48,8 @@ export default class DisplayThoughts extends Component {
                 <Text style={ styles.thoughtsText }> {item.thought}</Text>
                 <Text style={ styles.thoughtsText }> {dateFormatter(item.createdAt)}</Text>
                 <Button
-                title = "Delete this"
+                title="Delete this"
+                color="#8b0000"
                 onPress={ () => this.deleteThought(item._id) }
                  />
               </View>
