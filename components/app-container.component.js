@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, ScrollView } from 'react-native';
+import { View, ScrollView, StyleSheet } from 'react-native';
 import axios from "axios";
 
 import CreateThought from "./create-thought.component";
@@ -7,6 +7,7 @@ import InspireMe from "./inspire-me.component";
 import DisplayThoughts from "./display-thoughts.component";
 import { level } from "../functions/level"
 import { progressBar } from "../functions/progress-bar"
+import { thoughtsLength } from "../functions/thoughts-length"
 
 
 const AppContainer = () => {
@@ -36,13 +37,16 @@ const AppContainer = () => {
   }
   
   return (
-      <View>
-        <CreateThought afterThoughtCreated={afterThoughtCreated}/>
-        { level(healthLevel) }
-        { progressBar(progressBarWidth) }
-        <InspireMe />
+      <View style={styles.container}>
+        <CreateThought style={styles.createThought} afterThoughtCreated={afterThoughtCreated}/>
+        
+        <View style={styles.fillerContent}>
+            { level(healthLevel) }
+            { progressBar(progressBarWidth) }
+            <InspireMe />
+        </View>
 
-        <View style={{ height: 400}}> 
+        <View style={styles.thoughtList}> 
             <ScrollView>
               <DisplayThoughts />
             </ScrollView>
@@ -51,5 +55,21 @@ const AppContainer = () => {
       </View>
   )
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1
+  },
+  createThought: {
+    flex: 1
+  },
+  fillerContent: {
+    flex: 2
+  },
+  thoughtList: {
+    flex: 3
+  }
+})
+
 
 export default AppContainer;

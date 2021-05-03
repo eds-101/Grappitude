@@ -7,5 +7,5 @@ export function progressBar(barWidth) {
     <View>
     <View style={[styles.filler, {width: barWidth}]}/>
     <View style={styles.bar}/></View>
-)
+  )
 }
