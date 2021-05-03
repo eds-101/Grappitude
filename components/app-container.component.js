@@ -40,11 +40,11 @@ const AppContainer = () => {
       <View style={styles.container}>
         <CreateThought style={styles.createThought} afterThoughtCreated={afterThoughtCreated}/>
         
-        <View style={styles.fillerContent}>
+        <View style={styles.progressBar}>
             { level(healthLevel) }
             { progressBar(progressBarWidth) }
-            <InspireMe />
         </View>
+        <InspireMe style={styles.inspireMe} />
 
         <View style={styles.thoughtList}> 
             <ScrollView>
@@ -64,10 +64,13 @@ const styles = StyleSheet.create({
     flex: 1
   },
   fillerContent: {
-    flex: 2
+    flex: 1
+  },
+  inspireMe: {
+    flex: 1
   },
   thoughtList: {
-    flex: 3
+    flex: 1.5
   }
 })
 

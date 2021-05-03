@@ -1,5 +1,5 @@
 import React,  { Component } from 'react';
-import { Text, Button, TextInput, View } from 'react-native';
+import { Text, Button, TextInput, View, Image } from 'react-native';
 import axios from "axios";
 import styles from './design.component.style';
 
@@ -42,12 +42,13 @@ export default class CreateThought extends Component {
        style={styles.welcome}>
           What are you grateful for today?</Text>
        <TextInput
-         style={styles.textinput}
+         style={styles.textInput}
          placeholder="Type your thought here"
          value={this.state.thought}
          onChangeText={this.onChangeThought}
        />
        <Button
+         style={styles.button}
          title="Submit"
          color='#F7C9B6'
          onPress={this.onSubmit}
