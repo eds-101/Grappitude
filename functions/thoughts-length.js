@@ -16,6 +16,6 @@ export function thoughtsLength() {
         intMarker = (length % 10) * 10;
       };
 
-      return [ length, intMarker ]
+      return [level, intMarker]
     });
 }
