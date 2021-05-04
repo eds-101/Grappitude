@@ -1,14 +1,13 @@
-import React, { Component, useState } from 'react';
-import { FlatList, Text, Button, TextInput, View, StyleSheet, Image, ScrollView, SafeAreaView } from 'react-native';
+import React, { useState } from 'react';
+import { View, ScrollView, StyleSheet } from 'react-native';
 import axios from "axios";
 
-import styles from './design.component.style';
-
 import CreateThought from "./create-thought.component";
-import InspireMe   from "./inspire-me.component";
-import ProgressBar from "./progress-bar.component";
-import Level from "./level.component";
+import InspireMe from "./inspire-me.component";
 import DisplayThoughts from "./display-thoughts.component";
+import { level } from "../functions/level"
+import { progressBar } from "../functions/progress-bar"
+import { thoughtsLength } from "../functions/thoughts-length"
 
 
 const AppContainer = () => {
@@ -34,26 +33,20 @@ const AppContainer = () => {
   }
 
   const afterThoughtCreated = (data) => {
-    // We choose to do nothing with the data argument
-    // But I'm leaving it as a reminder that we *can*
     getThoughtsLength()
   }
   
   return (
-      <View>
-            {/* <Image source={require("../assets/header.png")} style={styles.image}/> */}
-              {/* <Text style={styles.title}>
-              Grappitude
-              </Text>
-            <AboutMe />
-           */}
-              <CreateThought afterThoughtCreated={afterThoughtCreated}/>
-              <Level healthLevel={healthLevel}/>
-              <ProgressBar progressBarWidth={progressBarWidth}/>
-              <InspireMe />
+      <View style={styles.container}>
+        <CreateThought style={styles.createThought} afterThoughtCreated={afterThoughtCreated}/>
+        
+        <View style={styles.progressBar}>
+            { level(healthLevel) }
+            { progressBar(progressBarWidth) }
+        </View>
+        <InspireMe style={styles.inspireMe} />
 
-        <View style={{ height: 400}}> 
-        {/* Can only have one component in scroll (i.e. display thoughts) */}
+        <View style={styles.thoughtList}> 
             <ScrollView>
               <DisplayThoughts />
             </ScrollView>
@@ -62,5 +55,24 @@ const AppContainer = () => {
       </View>
   )
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1
+  },
+  createThought: {
+    flex: 2
+  },
+  fillerContent: {
+    flex: 1
+  },
+  inspireMe: {
+    flex: 1
+  },
+  thoughtList: {
+    flex: 1
+  }
+})
+
 
 export default AppContainer;

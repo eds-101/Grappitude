@@ -1,7 +1,8 @@
 import React,  { Component } from 'react';
 import { FlatList, ScrollView, Text, View, Button, Alert } from 'react-native';
-import styles from './design.component.style';
 import axios from "axios";
+
+import styles from './design.component.style';
 import { dateFormatter } from "../functions/date-formatter"
 
 export default class DisplayThoughts extends Component {
@@ -45,15 +46,16 @@ export default class DisplayThoughts extends Component {
             item => (
               <View key={item._id}>
                 <Text style={ styles.thoughtsText }> {item.thought}</Text>
-                <Text style={ styles.thoughtsText }> {dateFormatter(item.createdAt)}</Text>
+                <Text style={ styles.thoughtsDate }> {dateFormatter(item.createdAt)}</Text>
                 <Button
-                title = "Delete this"
+                title="Delete this"
+                color='#EFCABA'
                 onPress={ () => this.deleteThought(item._id) }
                  />
               </View>
             ))
           }
       </View>
-    );
+    )
   }
 }

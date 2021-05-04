@@ -2,27 +2,29 @@ import { StyleSheet } from 'react-native'
 
 export default StyleSheet.create({
 bar: {
-      marginTop: 20,
-      height: 40,
-      width: '100%',
-      borderRadius: 10,
-      borderWidth: 5,
-      borderColor: '#6EC0D4'
-    },
+  marginTop: 20,
+  height: 40,
+  width: '100%',
+  borderRadius: 10,
+  borderWidth: 5,
+  borderColor: '#6EC0D4'
+ },
   
 filler: {
-      height: 30,
-      // width: '50%',
-      borderWidth: 15,
-      borderRadius: 5,
-      borderColor: '#EFCABA',
-      position: 'absolute',
-      marginTop: 25
-    },
+  height: 30,
+  // width: '50%',
+  borderWidth: 15,
+  borderRadius: 5,
+  borderColor: '#EFCABA',
+  position: 'absolute',
+  marginTop: 25
+  },
   
-mainview: {
-    marginTop: 40,
-    margin: 15
+container: {
+  flex: 1,
+  marginTop: 15,
+  marginBottom: 15
+  // margin: 15
 },
 
 title: {
@@ -32,43 +34,51 @@ title: {
   marginTop: 60
 },
 
-welcome: {
-        textAlign: 'center',
-        color: '#EFCABA',
-         marginTop: 20,
-         fontSize: 50,
-         textShadowColor: '#6EC0D4',
-         textShadowOffset: {width: -1, height: 2},
-         textShadowRadius: 0
+intro: {
+  flex: 1,
+  top: 25,
+  textAlign: 'center',
+  color: '#EFCABA',
+  fontSize: 40,
+  textShadowColor: '#6EC0D4',
+  textShadowOffset: {width: -1, height: 2},
+  textShadowRadius: 0
 },
 
-textinput: {
-           height: 90,
-           textAlign: 'center',
-           marginRight: 75,
-           width: '80%',
-           borderColor: '#6EC0D4',
-           borderRadius: 10,
-           borderWidth: 1,
-           marginTop: 60,
-           marginLeft: 40,
+mainImg: {
+  flex: 1,
+  justifyContent: 'center', 
+  alignItems: 'center'
 },
 
-  image: {
-    width: '100%',
+textInput: {
+  flex: 0.5,
+  textAlign: 'center',
+  width: '80%',
+  borderColor: '#F7C9B6',
+  borderRadius: 1,
+  borderWidth: 3,
+  marginLeft: 40,
+},
+
+image: {
+  width: '100%',
   },
 
-  thoughtsStyle: {
-    marginTop: 40,
-    margin: 10,
-    marginBottom: 0
+thoughtsText: {
+  fontSize: 18,
+  textAlign: "center",
+  marginBottom: 1
   },
 
-  thoughtsText: {
-    textAlign: "center",
-    marginBottom: 10
+thoughtsDate: {
+  fontSize: 14,
+  textAlign: "center",
+  marginBottom: 1
   },
 
-
+button: {
+  flex: 1
+},
 
   })
