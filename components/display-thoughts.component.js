@@ -1,5 +1,5 @@
 import React,  { Component } from 'react';
-import { FlatList, ScrollView, Text, View, Button, Alert } from 'react-native';
+import { Text, View, Button } from 'react-native';
 import axios from "axios";
 
 import styles from './design.component.style';
