@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">35.71% </span>
+                <span class="strong">0% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>5/14</span>
+                <span class='fraction'>0/11</span>
             </div>
         
             
@@ -37,16 +37,16 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">28.57% </span>
+                <span class="strong">0% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>2/7</span>
+                <span class='fraction'>0/6</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">35.71% </span>
+                <span class="strong">0% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>5/14</span>
+                <span class='fraction'>0/11</span>
             </div>
         
             
@@ -101,31 +101,13 @@
 <a name='L42'></a><a href='#L42'>42</a>
 <a name='L43'></a><a href='#L43'>43</a>
 <a name='L44'></a><a href='#L44'>44</a>
-<a name='L45'></a><a href='#L45'>45</a>
-<a name='L46'></a><a href='#L46'>46</a>
-<a name='L47'></a><a href='#L47'>47</a>
-<a name='L48'></a><a href='#L48'>48</a>
-<a name='L49'></a><a href='#L49'>49</a>
-<a name='L50'></a><a href='#L50'>50</a>
-<a name='L51'></a><a href='#L51'>51</a>
-<a name='L52'></a><a href='#L52'>52</a>
-<a name='L53'></a><a href='#L53'>53</a>
-<a name='L54'></a><a href='#L54'>54</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
+<a name='L45'></a><a href='#L45'>45</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -148,7 +130,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -164,23 +146,14 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import React,  { Component } from 'react';
-import { Text, Button, TextInput, View, StyleSheet } from 'react-native';
-import axios from "axios";
+import { Button, View, Alert } from 'react-native';
 &nbsp;
-export default class CreateThought extends Component {
-  constructor(props) {
-    super(props);
-    this.onChangeThought = this.onChangeThought.bind(this);
-    this.onSubmit = this.onSubmit.bind(this);
-    this.state = {
-      thought: '',
-    }
+export default class InspireMe extends Component {
+<span class="fstat-no" title="function not covered" >  co</span>nstructor(props) {
+<span class="cstat-no" title="statement not covered" >    super(props);</span>
+<span class="cstat-no" title="statement not covered" >    this.onSubmit = this.onSubmit.bind(this);</span>
   }
-<span class="fstat-no" title="function not covered" >  on</span>ChangeThought(thought) {
-<span class="cstat-no" title="statement not covered" >    this.setState({</span>
-      thought: thought
-    });
-  }
+&nbsp;
 <span class="fstat-no" title="function not covered" >  on</span>Submit(e) {
 <span class="cstat-no" title="statement not covered" >    e.preventDefault();</span>
 &nbsp;
@@ -192,7 +165,7 @@ export default class CreateThought extends Component {
       const positiveText = <span class="cstat-no" title="statement not covered" >positiveQuote.text</span>
       const positiveAuthor = <span class="cstat-no" title="statement not covered" >positiveQuote.author</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered" >      alert(`${positiveText}` + ` - ${positiveAuthor}`)</span>
+<span class="cstat-no" title="statement not covered" >      Alert.alert(`${positiveText}` + ` - ${positiveAuthor}`)</span>
     })
     .catch(<span class="fstat-no" title="function not covered" >(e</span>rror) =&gt; {
 <span class="cstat-no" title="statement not covered" >      console.error(error);</span>
@@ -200,8 +173,8 @@ export default class CreateThought extends Component {
 &nbsp;
   }
 &nbsp;
-  render() {
-   return (
+<span class="fstat-no" title="function not covered" >  re</span>nder() {
+<span class="cstat-no" title="statement not covered" >   return (</span>
      &lt;View
      style={{
        marginTop: 40,
@@ -223,7 +196,7 @@ export default class CreateThought extends Component {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Tue Apr 20 2021 19:40:04 GMT+0200 (Central European Summer Time)
+                at Wed May 05 2021 15:46:21 GMT+0100 (British Summer Time)
             </div>
         </div>
         <script src="../../prettify.js"></script>
