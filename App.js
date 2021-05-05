@@ -1,7 +1,6 @@
-import React, { Component } from 'react';
-import { FlatList, Text, Button, TextInput, View, StyleSheet, Image } from 'react-native';
+import React from 'react'
 
-import AppContainer from "./components/app-container.component";
+import AppContainer from "./components/app-container.component"
 
 const App = () => {
   return (

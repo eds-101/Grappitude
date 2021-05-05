@@ -1,6 +1,6 @@
 import React,  { Component } from 'react';
 import PropTypes from 'prop-types'
-import { Text, Button, TextInput, View, Image } from 'react-native';
+import { Text, Button, TextInput, View, Image, Alert } from 'react-native';
 import axios from "axios";
 import styles from './design.component.style';
 
@@ -20,6 +20,11 @@ export default class CreateThought extends Component {
   }
   
   onSubmit(e) {
+    if (this.state.thought === "") {
+      Alert.alert("Avoid empty thoughts!")
+      return 
+    }
+
     e.preventDefault();
     axios.post('http://localhost:5000/thoughts/add', {thought: this.state.thought} )
       .then(() => {
