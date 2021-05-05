@@ -12,7 +12,6 @@ bar: {
   
 filler: {
   height: 30,
-  // width: '50%',
   borderWidth: 15,
   borderRadius: 5,
   borderColor: '#EFCABA',
