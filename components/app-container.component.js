@@ -10,13 +10,13 @@ import { thoughtsLength } from "../functions/thoughts-length"
 
 const AppContainer = () => {
   const [progressBarWidth, setProgressBarWidth] = useState(0)
-  const [healthLevel, setHealthLevel] = useState(0)
+  const [healthLevel, setGratitudeLevel] = useState(0)
 
   const getThoughtsLength = async () => {
       const { level, intMarker } = await thoughtsLength();
 
       setProgressBarWidth(`${intMarker}%`)
-      setHealthLevel(`${level}`)
+      setGratitudeLevel(`${level}`)
   }
   
   const afterThoughtCreated = () => {
