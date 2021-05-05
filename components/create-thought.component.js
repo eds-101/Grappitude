@@ -1,4 +1,5 @@
 import React,  { Component } from 'react';
+import PropTypes from 'prop-types'
 import { Text, Button, TextInput, View, Image } from 'react-native';
 import axios from "axios";
 import styles from './design.component.style';
@@ -20,20 +21,20 @@ export default class CreateThought extends Component {
   
   onSubmit(e) {
     e.preventDefault();
-    const newthought = {
-      thought: this.state.thought,
-    }
-    console.log(newthought);
-    axios.post('http://localhost:5000/thoughts/add', newthought)
-      .then(res => {
+    axios.post('http://localhost:5000/thoughts/add', {thought: this.state.thought} )
+      .then(() => {
         const { afterThoughtCreated } = this.props
 
         if(afterThoughtCreated){
-          afterThoughtCreated(res.data)
+          afterThoughtCreated()
         }
       });
-      this.state.thought = ""
+      this.setState({
+        thought: ""
+      });
   }
+
+
 
   render() {
    return (
@@ -62,3 +63,7 @@ export default class CreateThought extends Component {
    );
  }
 }
+
+CreateThought.propTypes = {
+  afterThoughtCreated: PropTypes.func
+};
