@@ -19,20 +19,21 @@ const AppContainer = () => {
     .then((response) => {
       const data = response.data;
       const length = data.length;
+      let output
       const level = Math.floor(data.length / 10);
       if (length === 0) {
-        var output = 0
+        output = 0
       } else if (length % 10 === 0 && length != 0) {
-        var output = 100
+        output = 100
       } else {
-      var output = (length % 10) * 10;
-      };
+        output = (length % 10) * 10;
+      }
       setProgressBarWidth(`${output}%`)
       setHealthLevel(`${level}`)
     });
   }
 
-  const afterThoughtCreated = (data) => {
+  const afterThoughtCreated = () => {
     getThoughtsLength()
   }
   

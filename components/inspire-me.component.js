@@ -1,5 +1,5 @@
 import React,  { Component } from 'react';
-import { Text, Button, TextInput, View, StyleSheet, Alert } from 'react-native';
+import { Button, View, Alert } from 'react-native';
 
 export default class InspireMe extends Component {
   constructor(props) {
