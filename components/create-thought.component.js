@@ -21,15 +21,12 @@ export default class CreateThought extends Component {
   
   onSubmit(e) {
     e.preventDefault();
-    const newthought = {
-      thought: this.state.thought,
-    }
-    axios.post('http://localhost:5000/thoughts/add', newthought)
-      .then(res => {
+    axios.post('http://localhost:5000/thoughts/add', {thought: this.state.thought} )
+      .then(() => {
         const { afterThoughtCreated } = this.props
 
         if(afterThoughtCreated){
-          afterThoughtCreated(res.data)
+          afterThoughtCreated()
         }
       });
       this.setState({
@@ -67,7 +64,6 @@ export default class CreateThought extends Component {
  }
 }
 
-Component.propTypes = {
-  thought: PropTypes.string,
-  // afterThoughtCreated: PropTypes.node,
+CreateThought.propTypes = {
+  afterThoughtCreated: PropTypes.func
 };

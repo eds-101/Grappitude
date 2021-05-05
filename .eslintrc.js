@@ -19,7 +19,7 @@ module.exports = {
     ],
     "rules": {
     },
-    "parser": {
+    "parser": 
       "babel-eslint"
-    }
+    
 };
