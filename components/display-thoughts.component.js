@@ -6,7 +6,7 @@ import styles from './design.component.style';
 import { dateFormatter } from "../functions/date-formatter"
 
 export default class DisplayThoughts extends Component {
-   constructor(props) {
+  constructor(props) {
     super(props);
     this.state = {
       thoughts: []
@@ -15,6 +15,12 @@ export default class DisplayThoughts extends Component {
 
   componentDidMount = () => {
     this.getThoughts()
+  }
+
+  updateThoughts = (newThought) => {
+    this.setState({
+      thoughts: this.state.thoughts.push(newThought)
+    })
   }
 
   getThoughts = () => {

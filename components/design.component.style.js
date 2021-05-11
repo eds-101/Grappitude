@@ -76,8 +76,4 @@ thoughtsDate: {
   marginBottom: 1
   },
 
-button: {
-  flex: 1
-},
-
   })
