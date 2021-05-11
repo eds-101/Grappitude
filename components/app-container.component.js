@@ -50,7 +50,7 @@ const styles = StyleSheet.create({
     flex: 1
   },
   header: {
-    flex: 1.5
+    flex: 1
   },
   createThought: {
     flex: 1

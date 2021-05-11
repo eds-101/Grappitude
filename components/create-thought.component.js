@@ -1,6 +1,6 @@
 import React,  { Component } from 'react';
 import PropTypes from 'prop-types'
-import { Text, Button, TextInput, View, Image } from 'react-native';
+import { Button, TextInput, View } from 'react-native';
 import axios from "axios";
 import styles from './design.component.style';
 
@@ -33,8 +33,6 @@ export default class CreateThought extends Component {
         thought: ""
       });
   }
-
-
 
   render() {
    return (
