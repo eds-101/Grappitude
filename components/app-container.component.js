@@ -12,7 +12,7 @@ const AppContainer = () => {
   const [progressBarWidth, setProgressBarWidth] = useState(0)
   const [healthLevel, setGratitudeLevel] = useState(0)
 
-  const getThoughtsLength = async () => {
+  const setProgressBar = async () => {
       const { level, intMarker } = await thoughtsLength();
 
       setProgressBarWidth(`${intMarker}%`)
@@ -20,7 +20,7 @@ const AppContainer = () => {
   }
   
   const afterThoughtCreated = () => {
-    getThoughtsLength()
+    setProgressBar()
   }
 
   return (

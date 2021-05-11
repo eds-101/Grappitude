@@ -28,7 +28,7 @@ export default class CreateThought extends Component {
         if(afterThoughtCreated){
           afterThoughtCreated()
         }
-      });
+      })
       this.setState({
         thought: ""
       });
