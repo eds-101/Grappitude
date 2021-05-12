@@ -5,7 +5,6 @@ import CreateThought from "./create-thought.component";
 import InspireMe from "./inspire-me.component";
 import DisplayThoughts from "./display-thoughts.component";
 import Header from "./header.component"
-import { level } from "../functions/level"
 // import { gratitudeLevel } from "../functions/gratitude-level"
 import { progressBar } from "../functions/progress-bar"
 import { thoughtsLength } from "../functions/thoughts-length"
