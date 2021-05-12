@@ -6,12 +6,13 @@ import InspireMe from "./inspire-me.component";
 import DisplayThoughts from "./display-thoughts.component";
 import Header from "./header.component"
 import { level } from "../functions/level"
+// import { gratitudeLevel } from "../functions/gratitude-level"
 import { progressBar } from "../functions/progress-bar"
 import { thoughtsLength } from "../functions/thoughts-length"
 
 const AppContainer = () => {
   const [progressBarWidth, setProgressBarWidth] = useState(0)
-  const [healthLevel, setGratitudeLevel] = useState(0)
+  const [gratitudeVolume, setGratitudeLevel] = useState(0)
 
   const setProgressBar = async () => {
       const { level, intMarker } = await thoughtsLength();
@@ -30,7 +31,7 @@ const AppContainer = () => {
         {/* <CreateThought style={styles.createThought} afterThoughtCreated={afterThoughtCreated}/> */}
         
         <View style={styles.progressBar}>
-            { level(healthLevel) }
+            { gratitudeLevel(gratitudeVolume) }
             { progressBar(progressBarWidth) }
         </View>
         <InspireMe style={styles.inspireMe} />

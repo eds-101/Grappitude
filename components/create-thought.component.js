@@ -20,6 +20,11 @@ export default class CreateThought extends Component {
   }
   
   onSubmit(e) {
+    if (this.state.thought === "") {
+      Alert.alert("Avoid empty thoughts!")
+      return 
+    }
+
     e.preventDefault();
     axios.post('http://localhost:5000/thoughts/add', {thought: this.state.thought} )
       .then(() => {
