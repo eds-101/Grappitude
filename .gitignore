@@ -12,3 +12,4 @@ coverage/\*\*/*
 *.env
 # macOS
 .DS_Store
+secrets.js

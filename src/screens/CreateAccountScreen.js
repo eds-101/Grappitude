@@ -1,20 +1,21 @@
 import React from 'react';
-import { View, Text, Button } from 'react-native';
+import { Button } from 'react-native';
+import { createAccount } from '../../api/authentication'
+import EmailForm from '../../forms/EmailForm';
 
-const CreateAccountScreen = ({ navigation }) => {
+const CreateAccount = ({ navigation }) => {
   return (
-    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-      <Text>CreateAccountScreen</Text>
+    <EmailForm
+      buttonText="Submit Details"
+      onSubmit={createAccount}
+      onAuthentication={() => navigation.navigate('Home')}
+    >
       <Button
-        title="Submit Details"
-        onPress={() => navigation.navigate('Home')}
-      />
-      <Button
-        title="Registered? Login instead"
+        title="Already registered? Login instead"
         onPress={() => navigation.navigate('Login')}
       />
-    </View>
+    </EmailForm>
   );
-}
+};
 
-export default CreateAccountScreen;
+export default CreateAccount;
