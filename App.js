@@ -13,7 +13,7 @@ export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator
-        initialRouteName="Thoughts Feed"
+        initialRouteName="Home"
         screenOptions={{ gestureEnabled: false }}
       >
         <Stack.Screen
