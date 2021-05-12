@@ -40,14 +40,12 @@ export default class DisplayThoughts extends Component {
     });
   }
 
-  deleteThought = (thoughtId) => {
-    axios.delete(`http://localhost:5000/${thoughtId}`).
-    then(
-    res => console.log(res.data),
+  deleteThought = async (thoughtId) => {
+    const res = await axios.delete(`http://localhost:5000/thoughts/${thoughtId}`)
+    console.log(res.data)
     this.setState({ 
       thoughts: this.state.thoughts.filter(thought => thought._id !== thoughtId) 
     })
-    )
   }
 
   onChangeThought(thought) {
