@@ -1,6 +1,6 @@
 import React,  { Component } from 'react';
 import PropTypes from 'prop-types'
-import { Text, Button, TextInput, View, Image, Alert } from 'react-native';
+import { Button, TextInput, View } from 'react-native';
 import axios from "axios";
 import styles from './design.component.style';
 
@@ -33,25 +33,15 @@ export default class CreateThought extends Component {
         if(afterThoughtCreated){
           afterThoughtCreated()
         }
-      });
+      })
       this.setState({
         thought: ""
       });
   }
 
-
-
   render() {
    return (
      <View style={styles.container}>
-       <Text
-       style={styles.intro}>
-          What are you grateful for today?</Text>
-      <View style={styles.mainImg}>
-        <Image source={{uri: 'https://asianartnewspaper.com/wp-content/uploads/2018/11/1-AMIDA-Buddha.jpg'}}
-        style={{width: 120, height: 120 }} />
-      </View>
-      
        <TextInput
          style={styles.textInput}
          placeholder="Type your thought here"
