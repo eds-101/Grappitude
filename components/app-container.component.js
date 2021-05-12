@@ -27,7 +27,7 @@ const AppContainer = () => {
   return (
       <View style={styles.container}>
         <Header style={styles.header} />
-        <CreateThought style={styles.createThought} afterThoughtCreated={afterThoughtCreated}/>
+        {/* <CreateThought style={styles.createThought} afterThoughtCreated={afterThoughtCreated}/> */}
         
         <View style={styles.progressBar}>
             { level(healthLevel) }
