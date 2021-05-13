@@ -11,8 +11,21 @@ const getHeaders = async () => {
   if (token) {
     headers.Authorization = `Bearer ${token}`;
   }
-
+  
   return headers;
+};
+
+const formatResult = async (result) => {
+  const formatted = {
+    status: result.status,
+    ok: result.ok,
+  };
+
+  if (result.ok) {
+    formatted.data = await result.json();
+  }
+
+  return formatted;
 };
 
 export const post = async (destination, body) => {
@@ -24,12 +37,8 @@ export const post = async (destination, body) => {
     body: JSON.stringify(body),
   });
 
-  console.log(result);
-
-  if (result.ok) {
-    return await result.json();
-  }
-  throw { error: result.status };
+  const formattedResult = await formatResult(result)
+  return formattedResult
 };
 
 export const get = async (destination) => {
@@ -40,9 +49,6 @@ export const get = async (destination) => {
     headers,
   });
 
-  if (result.ok) {
-    return await result.json();
-  }
-
-  throw { error: result.status };
+  const formattedResult = await formatResult(result)
+  return formattedResult
 };
