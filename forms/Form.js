@@ -1,80 +1,54 @@
-import React from 'react';
-import { Text, TextInput, View } from 'react-native';
+import React, { useState } from 'react';
+import { Text, TextInput, Button, View } from 'react-native';
 
-const Form = ({ fields }) => {
-  const fieldKeys = Object.keys(fields);
-
-  return fieldKeys.map((key) => {
-    const field = fields[key];
-    return (
-      <View key={key}>
-        <Text>{field.label}</Text>
-        <TextInput {...field.inputProps} />
-      </View>
-    );
+const getInitialState = (fieldKeys) => {
+  const state = {};
+  fieldKeys.forEach((key) => {
+    state[key] = '';
   });
+
+  return state;
+};
+
+const Form = ({ fields, buttonText, action }) => {
+  const fieldKeys = Object.keys(fields);
+  const [values, setValues] = useState(getInitialState(fieldKeys));
+
+  const getValues = () => {
+    return fieldKeys.sort().map((key) => values[key]);
+  };
+
+  const submit = async () => {
+    const values = getValues();
+    const result = await action(...values);
+    console.log(result);
+  };
+
+  const onChangeValue = (key, value) => {
+    const newState = { ...values, [key]: value };
+    setValues(newState);
+  };
+
+  return (
+    <View>
+      {fieldKeys.map((key) => {
+        const field = fields[key];
+        return (
+          <View key={key}>
+            <Text>{field.label}</Text>
+            <TextInput
+              {...field.inputProps}
+              value={values[key]}
+              onChangeText={(text) => onChangeValue(key, text)}
+            />
+          </View>
+        );
+      })}
+      <Button title={buttonText} onPress={submit}/>
+    </View>
+  );
+  
 };
 
 export default Form;
 
-
-// import React, { useState } from 'react';
-// import { ScrollView, StyleSheet, TextInput, Button, Text } from 'react-native';
-// import { setToken } from '../api/token';
-
-// const EmailForm = ({ buttonText, onSubmit, children, onAuthentication }) => {
-//   const [email, onChangeEmail] = useState('');
-//   const [password, onChangePassword] = useState('');
-//   const [errorMessage, setErrorMessage] = useState('');
-
-//   const submit = () => {
-//     onSubmit(email, password)
-//       .then(async (res) => {
-//         await setToken(res.auth_token);
-//         onAuthentication();
-//       })
-//       .catch((res) => {
-//         if (res && res.error){
-//         setErrorMessage(res.error)
-//       }
-//       setErrorMessage('Something went wrong.')
-//       });
-//   };
-
-//   return (
-//     <ScrollView contentContainerStyle={styles.container}>
-//       <TextInput
-//         style={styles.input}
-//         onChangeText={(text) => onChangeEmail(text)}
-//         value={email}
-//         keyboardType="email-address"
-//       />
-//       <TextInput
-//         style={styles.input}
-//         onChangeText={(text) => onChangePassword(text)}
-//         value={password}
-//         secureTextEntry
-//       />
-//       <Button title={buttonText} onPress={submit} />
-//       {errorMessage ? <Text>{errorMessage}</Text> : null}
-//       {children}
-//     </ScrollView>
-//   );
-// };
-
-// const styles = StyleSheet.create({
-//   container: {
-//     flex: 1,
-//     alignItems: 'center',
-//     justifyContent: 'center',
-//   },
-//   input: {
-//     height: 40,
-//     width: 300,
-//     borderColor: 'gray',
-//     borderWidth: 1,
-//     marginTop: 20,
-//   },
-// });
-
-// export default EmailForm;
