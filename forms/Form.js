@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import { Text, TextInput, Button, View } from 'react-native';
+import { Text, TextInput, Button, View, StyleSheet } from 'react-native';
 
+import Field from './Field'
 import { hasValidationError, validateFields } from '../forms/validation'
 
 const getInitialState = (fieldKeys) => {
@@ -52,24 +53,21 @@ const Form = ({ fields, buttonText, action, afterSubmit }) => {
   };
 
   return (
-    <View>
-      <Text>{errorMessage}</Text>
-      {fieldKeys.map((key) => {
-        const field = fields[key];
-        const fieldError = validationErrors[key];
-        return (
-          <View key={key}>
-            <Text>{field.label}</Text>
-            <TextInput
-              {...field.inputProps}
-              value={values[key]}
-              onChangeText={(text) => onChangeValue(key, text)}
-            />
-            <Text>{fieldError}</Text>
-          </View>
-        );
-      })}
-      <Button title={buttonText} onPress={submit}/>
+    <View style={styles.container}>
+    <Text style={styles.error}>{errorMessage}</Text>
+    {fieldKeys.map((key) => {
+      return (
+        <Field
+          key={key}
+          fieldName={key}
+          field={fields[key]}
+          error={validationErrors[key]}
+          onChangeText={onChangeValue}
+          value={values[key]}
+        />
+      );
+    })}
+    <Button title={buttonText} onPress={submit} />
     </View>
   );
   
@@ -77,3 +75,15 @@ const Form = ({ fields, buttonText, action, afterSubmit }) => {
 
 export default Form;
 
+const styles = StyleSheet.create({
+  container: {
+    // flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginBottom: 15,
+  },
+  error: {
+    marginBottom: 20,
+    height: 17.5,
+  },
+});
