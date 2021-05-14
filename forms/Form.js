@@ -23,6 +23,11 @@ const Form = ({ fields, buttonText, action, afterSubmit }) => {
   const onChangeValue = (key, value) => {
     const newState = { ...values, [key]: value };
     setValues(newState);
+    
+    if (validationErrors[key]) {
+      const newErrors = { ...validationErrors, [key]: '' };
+      setValidationErrors(newErrors);
+    }
   };
 
   const getValues = () => {
