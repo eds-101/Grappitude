@@ -3,6 +3,7 @@ import { View, ScrollView, StyleSheet, Button } from 'react-native';
 
 import InspireMe from "./inspire-me.component";
 import DisplayThoughts from "./display-thoughts.component";
+// import AnalyseThoughts from "./analyse-thoughts.component";
 import Header from "./header.component"
 
 const AppContainer = ({ navigation }) => {
