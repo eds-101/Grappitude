@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Text, TextInput, Button, View, StyleSheet } from 'react-native';
 
 import Field from './Field'
+import SubmitButton from './SubmitButton'
 import { hasValidationError, validateFields } from '../forms/validation'
 
 const getInitialState = (fieldKeys) => {
@@ -67,7 +68,7 @@ const Form = ({ fields, buttonText, action, afterSubmit }) => {
         />
       );
     })}
-    <Button title={buttonText} onPress={submit} />
+    <SubmitButton title={buttonText} onPress={submit} />
     </View>
   );
   
@@ -77,7 +78,6 @@ export default Form;
 
 const styles = StyleSheet.create({
   container: {
-    // flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
     marginBottom: 15,
