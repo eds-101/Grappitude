@@ -26,12 +26,16 @@ function GoogleMap(){
         <MapView style={styles.map}
           region={region} >
           <Marker title="Rose School of Transformational Yoga"
+          description="North London Preferred Partner"
           coordinate={{ latitude: 51.653129, longitude: -0.201570 }}></Marker>
           <Marker title="Evolution Yoga Retreats"
+          description="Enquire for 10% off"
           coordinate={{ latitude: 51.533029, longitude: 0.042953 }}></Marker>
           <Marker title="Our retreat"
+          description="In House yoga and reflection"
           coordinate={{ latitude: 51.522042, longitude: -0.081769 }}></Marker>
           <Marker title="Yoga and Meditation retreats"
+          description="South London Preferred Partner"
           coordinate={{ latitude: 51.511523, longitude: -0.323309 }}></Marker>
         </MapView>
       </View>
