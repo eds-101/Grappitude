@@ -65,6 +65,7 @@ export default class HomeScreen extends React.Component {
           <Text>{userLoadingErrorMessage}</Text>
         ) : null}
         <Button title="Thoughts Feed" onPress={() => this.props.navigation.navigate('Thoughts Feed')} />
+        <Button title="Reflection spots near you" onPress={() => this.props.navigation.navigate('Map')} />
         <Button title="Log out" onPress={ this.logOut } />
       </View>
     );
