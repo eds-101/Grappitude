@@ -1,5 +1,5 @@
 import React,  { Component } from 'react';
-import { Text, TextInput, View, Button } from 'react-native';
+import { Text, TextInput, View, Button, Alert } from 'react-native';
 import axios from "axios";
 import Sentiment from 'sentiment'
 
@@ -32,6 +32,21 @@ export default class DisplayThoughts extends Component {
       alert('Error retrieving data');
     });
   }
+
+  deleteAlert = (thoughtId) =>
+    Alert.alert(
+      "Delete this thought",
+      "Are you sure?",
+      [
+        {
+          text: "Cancel",
+          onPress: () => console.log("Cancel Pressed"),
+          style: "cancel"
+        },
+        { text: "Yes", onPress: () => this.deleteThought(thoughtId) }
+      ],
+      { cancelable: false }
+    );
 
   deleteThought = async (thoughtId) => {
     const res = await axios.delete(`http://localhost:5000/thoughts/${thoughtId}`)
@@ -99,7 +114,7 @@ export default class DisplayThoughts extends Component {
               <Button
               title="Delete this"
               color='#EFCABA'
-              onPress={ () => this.deleteThought(item._id) }
+              onPress={ () => this.deleteAlert(item._id) }
                 />
             </View>
           ))
