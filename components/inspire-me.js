@@ -1,6 +1,9 @@
 import React,  { Component } from 'react';
 import { Button, View, Alert } from 'react-native';
 
+import SubmitButton from '../forms/SubmitButton'
+
+
 export default class InspireMe extends Component {
   constructor(props) {
     super(props);
@@ -8,7 +11,7 @@ export default class InspireMe extends Component {
   }
 
   onSubmit(e) {
-    e.preventDefault();
+    // e.preventDefault();
     return fetch('https://type.fit/api/quotes')
       .then((response) => response.json())
       .then((json) => {
@@ -22,16 +25,8 @@ export default class InspireMe extends Component {
 
   render() {
    return (
-     <View
-     style={{
-       marginTop: 40,
-       margin: 15
-     }}>
-       <Button
-         title="Inspire Me"
-         color='blue'
-         onPress={this.onSubmit}
-         />
+     <View>
+      <SubmitButton title={"Inspire Me"} onPress={this.onSubmit} />
      </View>
    );
  }
