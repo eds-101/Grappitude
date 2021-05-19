@@ -10,9 +10,7 @@ const AppContainer = ({ navigation }) => {
       <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
         <View style={styles.container}>
           <Header style={styles.header} />
-          <Button title="Go Home" onPress={ () => navigation.navigate('Home') } />
           <InspireMe style={styles.inspireMe} />
-
           <View style={styles.thoughtList}> 
               <ScrollView>
                 <DisplayThoughts />
@@ -34,7 +32,7 @@ const styles = StyleSheet.create({
     flex: 1
   },
   thoughtList: {
-    flex: 2
+    flex: 4
   }
 })
 

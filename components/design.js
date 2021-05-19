@@ -1,23 +1,6 @@
 import { StyleSheet } from 'react-native'
 
 export default StyleSheet.create({
-bar: {
-  marginTop: 20,
-  height: 40,
-  width: '100%',
-  borderRadius: 10,
-  borderWidth: 5,
-  borderColor: '#6EC0D4'
- },
-  
-filler: {
-  height: 30,
-  borderWidth: 15,
-  borderRadius: 5,
-  borderColor: '#EFCABA',
-  position: 'absolute',
-  marginTop: 25
-  },
   
 container: {
   flex: 1,
@@ -30,7 +13,7 @@ title: {
   position: 'absolute',
   justifyContent: 'center', 
   alignItems: 'center',
-  marginTop: 60
+  // marginTop: 60
 },
 
 intro: {
@@ -39,30 +22,22 @@ intro: {
   textAlign: 'center',
   color: '#EFCABA',
   fontSize: 40,
-  textShadowColor: '#6EC0D4',
-  textShadowOffset: {width: -1, height: 2},
+  textShadowColor: 'black',
+  textShadowOffset: {width: -1, height: 1},
   textShadowRadius: 0
-},
-
-mainImg: {
-  flex: 1,
-  justifyContent: 'center', 
-  alignItems: 'center'
 },
 
 textInput: {
   flex: 0.5,
   textAlign: 'center',
+  height: 50,
+  fontSize: 18,
   width: '80%',
   borderColor: '#F7C9B6',
   borderRadius: 1,
   borderWidth: 3,
   marginLeft: 40,
 },
-
-image: {
-  width: '100%',
-  },
 
 thoughtsText: {
   fontSize: 18,

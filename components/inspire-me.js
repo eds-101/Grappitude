@@ -17,7 +17,11 @@ const InspireMe = () => {
   }
 
    return (
-     <View>
+     <View style={{
+       alignItems: 'center', 
+       justifyContent: 'center',
+       height: 100
+       }}>
       <SubmitButton title={"Inspire Me"} onPress={submit} />
      </View>
    );
