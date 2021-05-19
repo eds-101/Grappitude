@@ -38,12 +38,16 @@ const Form = ({ fields, buttonText, action, afterSubmit }) => {
   };
 
   const fadeOut = () =>
-  Animated.timing(opacity, { toValue: 0.2, duration: 200 }).start();
+  Animated.timing(opacity, { 
+    toValue: 0.2, duration: 200, useNativeDriver: true }).start();
 
   const fadeIn = () =>
-  Animated.timing(opacity, { toValue: 1, duration: 200 }).start();
+  Animated.timing(opacity, {
+    toValue: 1, duration: 200, useNativeDriver: true }).start();
 
   const submit = async () => {
+    fadeOut()
+    fadeIn()
     setErrorMessage('');
     setValidationErrors(getInitialState(fieldKeys));
   

@@ -1,5 +1,5 @@
 import React, { useRef } from 'react';
-import { TouchableWithoutFeedback, Text, StyleSheet, Animated } from 'react-native';
+import { TouchableWithoutFeedback, View, Text, StyleSheet, Animated } from 'react-native';
 
 const SubmitButton = ({ title, onPress }) => {
   const animationValue = useRef(new Animated.Value(0)).current;
@@ -20,7 +20,7 @@ const SubmitButton = ({ title, onPress }) => {
     {scale: 
       animationValue.interpolate({
         inputRange: [0, 1],
-        outputRange: [1, 1.05]
+        outputRange: [1, 0.95],
         })
     }
   ];
