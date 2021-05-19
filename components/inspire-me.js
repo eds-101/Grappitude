@@ -1,5 +1,5 @@
 import React,  { Component } from 'react';
-import { Button, View, Alert } from 'react-native';
+import { View, Alert } from 'react-native';
 
 import SubmitButton from '../forms/SubmitButton'
 
@@ -10,8 +10,7 @@ export default class InspireMe extends Component {
     this.onSubmit = this.onSubmit.bind(this);
   }
 
-  onSubmit(e) {
-    // e.preventDefault();
+  onSubmit() {
     return fetch('https://type.fit/api/quotes')
       .then((response) => response.json())
       .then((json) => {
