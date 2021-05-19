@@ -1,21 +1,32 @@
 import React from 'react';
-import { Button } from 'react-native';
-import { createAccount } from '../../api/authentication'
-import EmailForm from '../../forms/EmailForm';
+import { View, Button } from 'react-native'
+import Form from '../../forms/Form';
 
 const CreateAccount = ({ navigation }) => {
   return (
-    <EmailForm
-      buttonText="Submit Details"
-      onSubmit={createAccount}
-      onAuthentication={() => navigation.navigate('Home')}
-    >
-      <Button
-        title="Already registered? Login instead"
-        onPress={() => navigation.navigate('Login')}
-      />
-    </EmailForm>
-  );
+    <View>
+    <Form
+      fields={{
+        email: {
+          label: 'Email',
+          inputProps: {
+            keyboardType: 'email-address',
+          },
+        },
+        password: {
+          label: 'Password',
+          inputProps: {
+            secureTextEntry: true,
+          },
+        },
+      }}
+    />
+    <Button
+      title="Already registered? Login instead"
+      onPress={() => navigation.navigate('Login')}
+    />
+    </View>
+      )
 };
 
 export default CreateAccount;

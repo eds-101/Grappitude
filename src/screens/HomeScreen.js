@@ -58,12 +58,7 @@ export default class HomeScreen extends React.Component {
     return (
       <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
         <Text>HomeScreen</Text>
-        {users.map((user) => (
-          <Text key={user.email}>{user.email}</Text>
-        ))}
-        {userLoadingErrorMessage ? (
-          <Text>{userLoadingErrorMessage}</Text>
-        ) : null}
+
         <Button title="Thoughts Feed" onPress={() => this.props.navigation.navigate('Thoughts Feed')} />
         <Button title="Reflection spots near you" onPress={() => this.props.navigation.navigate('Map')} />
         <Button title="Log out" onPress={ this.logOut } />
@@ -71,3 +66,9 @@ export default class HomeScreen extends React.Component {
     );
   }
 }
+        // {users.map((user) => (
+        //   <Text key={user.email}>{user.email}</Text>
+        // ))}
+        // {userLoadingErrorMessage ? (
+        //   <Text>{userLoadingErrorMessage}</Text>
+        // ) : null}
