@@ -56,10 +56,15 @@ export default class DisplayThoughts extends Component {
     })
   }
 
+  emojiExpression = (score) => {
+    if (score > 0) {return "✌🏻✌🏽✌🏿 vibes"}
+    else if (score < 0) {return "🚨🚨🚨"}
+    else {return "🙂"}
+  }
 
   applySentiment = (thoughts) => {
     const analyzer = new Sentiment();
-
+    
     return thoughts.map((t) => {
       return {
         ...t,
@@ -67,7 +72,7 @@ export default class DisplayThoughts extends Component {
       }
     })
   }
-
+  
   render() {
     const analyzedThoughts = this.applySentiment(this.state.thoughts)
 
@@ -89,7 +94,7 @@ export default class DisplayThoughts extends Component {
           item => (
             <View key={item._id}>
               <Text style={ styles.thoughtsText }> {item.thought}</Text>
-              <Text style={ styles.thoughtsText }> Sentiment: {item.sentiment.score}</Text>
+              <Text style={ styles.thoughtsText }> {this.emojiExpression(item.sentiment.score)}</Text>
               <Text style={ styles.thoughtsDate }> {dateFormatter(item.createdAt)}</Text>
               <Button
               title="Delete this"
