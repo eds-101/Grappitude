@@ -1,35 +1,41 @@
-import React, { useState } from 'react';
+import React, { useRef } from 'react';
 import { TouchableWithoutFeedback, View, Text, StyleSheet, Animated } from 'react-native';
 
 const SubmitButton = ({ title, onPress }) => {
-  const [offset] = useState(new Animated.Value(1));
-  const [scale] = useState(new Animated.Value(1));
+  const animationValue = useRef(new Animated.Value(0)).current;
 
   const handlePress = async () => {
-    Animated.spring(offset, {
-      toValue: 5,
-    }).start();
-    Animated.spring(scale, {
-      toValue: 0.96,
-    }).start();
-
+    // Animated.spring(offset, {
+    //   toValue: 5,
+    //   useNativeDriver: false
+    // }).start();
+    // Animated.spring(scale, {
+    //   toValue: 0.96,
+    //   useNativeDriver: false
+    // }).start();
+    
     await onPress();
-    Animated.spring(offset, {
-      toValue: 0,
-    }).start();
-    Animated.spring(scale, {
+    Animated.spring(animationValue, {
       toValue: 1,
-    }).start();
+      useNativeDriver: true
+    }).start(() => { Animated.spring(animationValue, {
+      toValue: 0,
+      useNativeDriver: true
+      }).start();
+    })
   };
 
   const transform = [
-    { translateY: offset },
-    { scaleY: scale },
-    { scaleX: scale },
+    {scale: 
+      animationValue.interpolate({
+        inputRange: [0, 1],
+        outputRange: [1, 1.1],
+        })
+    }
   ];
 
   return (
-    <TouchableWithoutFeedback onPressIn={onPress}>
+    <TouchableWithoutFeedback onPressIn={handlePress}>
       <Animated.View style={{ transform, ...styles.container }}>
         <Text style={styles.text}>{title}</Text>
       </Animated.View>
