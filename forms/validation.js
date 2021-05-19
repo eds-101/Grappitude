@@ -5,8 +5,8 @@ export const validateContent = (text) => {
 };
 
 export const validateLength = (text) => {
-  if (text && text.length < 6) {
-    return 'Must be 6 characters or more.';
+  if (text && text.length < 4) {
+    return 'Must be 4 characters or more.';
   }
 };
 
@@ -42,4 +42,5 @@ export const validateFields = (fields, values) => {
 
 export const hasValidationError = (errors) => {
   return Object.values(errors).find((error) => error.length > 0);
+
 };

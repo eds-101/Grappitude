@@ -6,6 +6,7 @@ import LoginScreen from './src/screens/LoginScreen';
 import HomeScreen from './src/screens/HomeScreen';
 import CreateAccountScreen from './src/screens/CreateAccountScreen';
 import AppContainer from "./components/app-container.component";
+import GoogleMap from "./components/google-map.component";
 
 const Stack = createStackNavigator();
 
@@ -34,6 +35,10 @@ export default function App() {
         <Stack.Screen
           name="Thoughts Feed"
           component={AppContainer}
+        />
+        <Stack.Screen
+          name="Map"
+          component={GoogleMap}
         />
       </Stack.Navigator>
     </NavigationContainer>

@@ -1,6 +1,7 @@
 import React,  { Component } from 'react';
 import { Text, TextInput, View, Button } from 'react-native';
 import axios from "axios";
+import Sentiment from 'sentiment'
 
 import styles from './design.component.style';
 import { dateFormatter } from "../functions/date-formatter"
@@ -10,6 +11,7 @@ export default class DisplayThoughts extends Component {
     super(props);
     this.onChangeThought = this.onChangeThought.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
+    this.applySentiment = this.applySentiment.bind(this)
     this.state = {
       thoughts: [],
       thought: ''
@@ -18,15 +20,6 @@ export default class DisplayThoughts extends Component {
 
   componentDidMount = () => {
     this.getThoughts()
-  }
-
-  updateThoughts = (newThought) => {
-    let refreshedThoughts = []
-    refreshedThoughts.push(this.state.thoughts).push(newThought)
-    this.setState({
-      thoughts: refreshedThoughts,
-      thought: ""
-      })
   }
 
   getThoughts = () => {
@@ -54,24 +47,30 @@ export default class DisplayThoughts extends Component {
     });
   }
 
-  onSubmit(e) {
+  onSubmit = async (e) => {
     e.preventDefault();
-    // add thought to db
-       axios.post('http://localhost:5000/thoughts/add', {thought: this.state.thought} )
-      .then(() => {
-    // add new thought to state
-        let newThought = { "_id": "609a4d377a9cd480a84903", "thought": this.state.thought, "createdAt": new Date, "updatedAt": new Date, "__v": 0 }
-        console.log(newThought)
-        console.log(this.state.thoughts.slice(0,3))
-        this.setState({
-        thoughts: this.state.thoughts.push(newThought),
-        thought: ""
-        })
+    await axios.post('http://localhost:5000/thoughts/add', {thought: this.state.thought} )
+    this.setState({
+      thoughts: [...this.state.thoughts, { "_id": Date.now().toString(), "thought": this.state.thought, "createdAt": new Date} ],
+      thought: ""
+    })
+  }
+
+
+  applySentiment = (thoughts) => {
+    const analyzer = new Sentiment();
+
+    return thoughts.map((t) => {
+      return {
+        ...t,
+        sentiment: analyzer.analyze(t.thought)
+      }
     })
   }
 
   render() {
-    
+    const analyzedThoughts = this.applySentiment(this.state.thoughts)
+
     return (
       <View>
         <TextInput
@@ -85,12 +84,12 @@ export default class DisplayThoughts extends Component {
           title="Submit"
           color='#F7C9B6'
           onPress={this.onSubmit}
-
         />
-        { this.state.thoughts.slice().reverse().map(
+        { analyzedThoughts.slice().reverse().map(
           item => (
             <View key={item._id}>
               <Text style={ styles.thoughtsText }> {item.thought}</Text>
+              <Text style={ styles.thoughtsText }> Sentiment: {item.sentiment.score}</Text>
               <Text style={ styles.thoughtsDate }> {dateFormatter(item.createdAt)}</Text>
               <Button
               title="Delete this"
