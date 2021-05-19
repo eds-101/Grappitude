@@ -1,9 +1,8 @@
 import React,  { useState } from 'react';
 import MapView, { Marker } from 'react-native-maps';
 import { StyleSheet, View, Dimensions } from 'react-native';
-// import Marker  from 'react-native-maps';
 
-function GoogleMap(){
+function Map(){
 
   const [region] = useState({
     latitude: 51.509865,
@@ -11,16 +10,7 @@ function GoogleMap(){
     latitudeDelta: 0.722,
     longitudeDelta: 0.0421,
   })
-
-  // const [yogaSpots] = useState([
-  //   {index: 1,
-  //   marker={marker.latlng},
-  //   title={marker.title},
-  //   description={marker.description}
-  // }
-  // ])
   
-
     return (
       <View style={styles.container}>
         <MapView style={styles.map}
@@ -55,4 +45,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default GoogleMap;
+export default Map;

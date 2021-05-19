@@ -9,21 +9,15 @@ export default class InspireMe extends Component {
 
   onSubmit(e) {
     e.preventDefault();
-
-
-  return fetch('https://type.fit/api/quotes')
-    .then((response) => response.json())
-    .then((json) => {
-      const positiveQuote = json[(Math.floor(Math.random()*json.length))];
-      const positiveText = positiveQuote.text
-      const positiveAuthor = positiveQuote.author
-
-      Alert.alert(`${positiveText}` + ` - ${positiveAuthor}`)
-    })
-    .catch((error) => {
-      console.error(error);
-    });
-
+    return fetch('https://type.fit/api/quotes')
+      .then((response) => response.json())
+      .then((json) => {
+        const positiveQuote = json[(Math.floor(Math.random()*json.length))];
+        Alert.alert(`${positiveQuote.text}` + ` - ${positiveQuote.author}`)
+      })
+      .catch((error) => {
+        console.error(error);
+      });
   }
 
   render() {
