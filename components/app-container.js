@@ -32,7 +32,7 @@ const styles = StyleSheet.create({
     flex: 1
   },
   thoughtList: {
-    flex: 4
+    flex: 5
   }
 })
 

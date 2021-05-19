@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
 import { TouchableWithoutFeedback, Text, StyleSheet, Animated } from 'react-native';
 
-const SubmitButton = ({ title, onPress }) => {
+const SubmitButton = ({ title, onPress, heightSize }) => {
   const animationValue = useRef(new Animated.Value(0)).current;
 
   const handlePress = async () => {
@@ -41,7 +41,7 @@ const styles = StyleSheet.create({
       width: 0,
       height: 2,
     },
-    backgroundColor: '#3F5EFB',
+    backgroundColor: '#EFCABA',
     shadowOpacity: 0.23,
     shadowRadius: 2.62,
     width: 250,
