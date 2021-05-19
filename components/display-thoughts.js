@@ -3,7 +3,7 @@ import { Text, TextInput, View, Button } from 'react-native';
 import axios from "axios";
 import Sentiment from 'sentiment'
 
-import styles from './design.component.style';
+import styles from './design';
 import { dateFormatter } from "../functions/date-formatter"
 
 export default class DisplayThoughts extends Component {

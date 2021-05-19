@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Text, View, Image } from 'react-native';
-import styles from './design.component.style';
+import styles from './design';
 
 export default class Header extends Component {
    render() {

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Text, TextInput, View, StyleSheet } from 'react-native';
 
 const Field = ({ fieldName, field, value, onChangeText, error }) => {

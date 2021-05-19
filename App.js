@@ -5,8 +5,8 @@ import { createStackNavigator } from '@react-navigation/stack';
 import LoginScreen from './src/screens/LoginScreen';
 import HomeScreen from './src/screens/HomeScreen';
 import CreateAccountScreen from './src/screens/CreateAccountScreen';
-import AppContainer from "./components/app-container.component";
-import GoogleMap from "./components/google-map.component";
+import AppContainer from "./components/app-container";
+import Map from "./components/map";
 
 const Stack = createStackNavigator();
 
@@ -38,7 +38,7 @@ export default function App() {
         />
         <Stack.Screen
           name="Map"
-          component={GoogleMap}
+          component={Map}
         />
       </Stack.Navigator>
     </NavigationContainer>

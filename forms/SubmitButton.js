@@ -1,5 +1,5 @@
 import React, { useRef } from 'react';
-import { TouchableWithoutFeedback, View, Text, StyleSheet, Animated } from 'react-native';
+import { TouchableWithoutFeedback, Text, StyleSheet, Animated } from 'react-native';
 
 const SubmitButton = ({ title, onPress }) => {
   const animationValue = useRef(new Animated.Value(0)).current;

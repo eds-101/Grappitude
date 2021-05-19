@@ -1,15 +1,13 @@
 import React from 'react';
 import { View, ScrollView, StyleSheet, Button } from 'react-native';
 
-import InspireMe from "./inspire-me.component";
-import DisplayThoughts from "./display-thoughts.component";
-// import AnalyseThoughts from "./analyse-thoughts.component";
-import Header from "./header.component"
+import InspireMe from "./inspire-me";
+import DisplayThoughts from "./display-thoughts";
+import Header from "./header"
 
 const AppContainer = ({ navigation }) => {
   return (
       <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-      
         <View style={styles.container}>
           <Header style={styles.header} />
           <Button title="Go Home" onPress={ () => navigation.navigate('Home') } />
@@ -20,7 +18,6 @@ const AppContainer = ({ navigation }) => {
                 <DisplayThoughts />
               </ScrollView>
           </View>
-
         </View>
       </View>
   )

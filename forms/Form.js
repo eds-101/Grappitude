@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Text, TextInput, Button, View, StyleSheet, Animated } from 'react-native';
+import { Text, View, StyleSheet, Animated } from 'react-native';
 
 import Field from './Field'
 import SubmitButton from './SubmitButton'
