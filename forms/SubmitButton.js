@@ -1,19 +1,10 @@
 import React, { useRef } from 'react';
-import { TouchableWithoutFeedback, View, Text, StyleSheet, Animated } from 'react-native';
+import { TouchableWithoutFeedback, Text, StyleSheet, Animated } from 'react-native';
 
 const SubmitButton = ({ title, onPress }) => {
   const animationValue = useRef(new Animated.Value(0)).current;
 
   const handlePress = async () => {
-    // Animated.spring(offset, {
-    //   toValue: 5,
-    //   useNativeDriver: false
-    // }).start();
-    // Animated.spring(scale, {
-    //   toValue: 0.96,
-    //   useNativeDriver: false
-    // }).start();
-    
     await onPress();
     Animated.spring(animationValue, {
       toValue: 1,
@@ -29,7 +20,7 @@ const SubmitButton = ({ title, onPress }) => {
     {scale: 
       animationValue.interpolate({
         inputRange: [0, 1],
-        outputRange: [1, 1.1],
+        outputRange: [1, 1.05]
         })
     }
   ];
