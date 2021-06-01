@@ -5,7 +5,7 @@
 - Comments - Sentiment Analyser, delete comments with confirmation
 - Maps feature for choosing spots
 
-![Grappitude v2 Gif](https://media2.giphy.com/media/3Gp6RY5eVOF5gjVMcs/giphy.mp4)
+![Grappitude v2 Gif](./assets/gifs/grap-v2.gif)
 
 # How to install and run the program:
 ```sh
