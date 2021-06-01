@@ -2,7 +2,7 @@
 
 * Increased features and functionality
 - Login and signup feature via custom Rails Authentication API
-- Comments - Sentiment Analyser, delete comments with confirmation
+- Comments - Sentiment Analyser to detect positive/negative thoughts; delete comments with confirmation
 - Maps feature for choosing spots
 
 <img src="/assets/gifs/grap-v2.gif" height="400px">
