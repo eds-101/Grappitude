@@ -5,7 +5,7 @@
 - Comments - Sentiment Analyser, delete comments with confirmation
 - Maps feature for choosing spots
 
-+<img src="/assets/gifs/grap-v2.gif" width="200px" height="300px">
+<img src="/assets/gifs/grap-v2.gif" height="400px">
 <!-- ![Grappitude v2 Gif](https://github.com/eds-101/Grappitude/blob/) -->
 
 # How to install and run the program:
