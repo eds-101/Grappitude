@@ -1,6 +1,6 @@
 # Final Project rework
 
-* Increased features and functionality
+- Increased features and functionality
 - Login and signup feature via custom Rails Authentication API
 - Comments - Sentiment Analyser to detect positive/negative thoughts; delete comments with confirmation
 - Maps feature for choosing a yoga retreat on a map
