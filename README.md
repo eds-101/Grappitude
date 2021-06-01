@@ -3,7 +3,7 @@
 * Increased features and functionality
 - Login and signup feature via custom Rails Authentication API
 - Comments - Sentiment Analyser to detect positive/negative thoughts; delete comments with confirmation
-- Maps feature for choosing spots
+- Maps feature for choosing a yoga retreat on a map
 
 <img src="/assets/gifs/grap-v2.gif" height="400px">
 <!-- ![Grappitude v2 Gif](https://github.com/eds-101/Grappitude/blob/) -->
